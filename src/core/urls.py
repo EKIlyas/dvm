@@ -11,6 +11,6 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(next_page='core:login'), name='logout'),
 
     path('', SetView.as_view(), name='sets'),
-    path('test/<slug:slug>/<int:sequence>/', TestView.as_view(), name='test'),
-    path('result/<slug:slug>/', ResultView.as_view(), name='result'),
+    path('test/<str:slug>/<int:sequence>/', TestView.as_view(), name='test'),
+    path('result/<str:slug>/', ResultView.as_view(), name='result'),
 ]

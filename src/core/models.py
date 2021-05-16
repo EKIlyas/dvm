@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
-from django.template.defaultfilters import slugify
 from django.urls import reverse
+from django.utils.text import slugify
 
 
 class Set(models.Model):
@@ -20,7 +20,7 @@ class Set(models.Model):
 
     def save(self, *args, **kwargs):  # new
         if not self.slug:
-            self.slug = slugify(self.name)
+            self.slug = slugify(self.name, allow_unicode=True)
         return super().save(*args, **kwargs)
 
 
