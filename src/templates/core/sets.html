@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+    <table class="table table-striped table-hover mt-5">
+        <tbody>
+        {% for set in set_list %}
+            <tr>
+
+                <td style="width: 20%">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ set }}">
+                        <input class="btn btn-outline-primary" type="submit" value="Начать тестирование">
+                    </form>
+                </td>
+                <td><h3>{{ set.name }}</h3></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+
+{% endblock %}

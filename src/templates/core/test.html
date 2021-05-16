@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Тест{% endblock %}
+
+{% block content %}
+    <h1>Укажите правильные ответы</h1>
+
+    <h2 class="mt-5">{{ cart.question }}</h2>
+    <table class="table table-striped table-hover">
+        <tbody>
+        <form method="post" action="" id="examine" onsubmit="validate(this); return false">
+            {% csrf_token %}
+            {% for answer in answers %}
+                <tr>
+                    <td style="width: 50px"><input name="{{ answer.id }}" type="checkbox" class="form-check-input"></td>
+                    <td>{{ answer.text }}</td>
+                </tr>
+            {% endfor %}
+        </form>
+        </tbody>
+    </table>
+    <input form="examine" type="submit" value="Следующий вопрос" class="btn btn-success">
+
+    <script type="text/javascript">
+        function validate(f) {
+            if (document.querySelectorAll('input[class="form-check-input"]:checked').length == 0) {
+                alert("Нужно выбрать хотя бы один вариант");
+            }
+            else {
+                f.submit();
+            }
+        }
+
+    </script>
+{% endblock %}

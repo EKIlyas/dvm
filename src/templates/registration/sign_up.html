@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Регистрация
+{% endblock %}
+
+{% block content %}
+            <a href="{% url 'core:login' %}"></a>
+            <h2>Регистрация</h2>
+            <form action="{% url 'core:sign_up' %}" method="post">
+                {% csrf_token %}
+                {{ form|crispy }}
+
+                <button type="submit" class="btn btn-success">Зарегестрироваться</button>
+            </form>
+
+{% endblock %}

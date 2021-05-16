@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Результат{% endblock %}
+
+{% block content %}
+    <a href="{% url 'core:sets' %}">На главную</a>
+
+    <h1 class="mt-5">Результат</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Правильных ответов</th>
+            <th scope="col">Неправильных ответов</th>
+            <th scope="col">Правильных ответов(%)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ correct_count }}</td>
+            <td>{{ not_correct_count }}</td>
+            <td>{{ percent }}%</td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}

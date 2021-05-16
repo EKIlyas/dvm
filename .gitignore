@@ -1,0 +1,4 @@
+env
+src/db.sqlite3
+.idea
+src/dvm_test/settings/settings_local.py
